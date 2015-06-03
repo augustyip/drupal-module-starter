@@ -1,0 +1,32 @@
+<?php
+/**
+* @file module_template.module
+ * Module template
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function module_template_menu() {
+  $items = array();
+  $items['path'] = array(
+    'title' => 'Title',
+    'description' => '',
+    'page arguments' => array('admin_settings_form'),
+    'page callback' => 'drupal_get_form',
+    'access arguments' => array('administer my module'),
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission()
+ */
+function module_template_permission() {
+  return array(
+    'administer my module' => array(
+      'title' => t('Administer my module'),
+      'description' => t('Perform stuff for my module.'),
+    ),
+  );
+}
